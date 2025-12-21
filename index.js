@@ -1,5 +1,14 @@
 const express = require("express");
 const app = express();
+app.use(express.json());
+app.post("/reports", (req, res) => {
+  const report = req.body;
+
+  res.status(201).json({
+    message: "Disaster report received",
+    report: report
+  });
+});
 
 app.get("/", (req, res) => {
   res.send("Backend is running");
